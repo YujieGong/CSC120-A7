@@ -92,6 +92,8 @@ public class Building {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)");
     }
 
+    
+
     public String toString() {
         return this.name + " is a " + this.nFloors + "-story building located at " + this.address + ".";
     }
@@ -107,7 +109,6 @@ public class Building {
         Building fordHall = new Building("Ford Hall", "100 Green Street Northampton, MA 01063", 3);
         System.out.println(fordHall);
         fordHall.showOptions();
-
         System.out.println("-----------------------------------");
         System.out.println("Demonstrating enter/exit/navigation");
         System.out.println("-----------------------------------");

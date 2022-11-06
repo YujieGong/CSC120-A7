@@ -13,6 +13,21 @@ public class Library extends Building{
       this.collection = new Hashtable<>();
       System.out.println("You have built a library: 📖");
     }
+
+  /**
+   * an overload class is created so that if the user does not know the number of floor of the building, they can choose not to input it
+   * @param name
+   * @param address
+   */
+
+    public Library(String name, String address) {
+      super(name, address);
+      nFloors = 3;
+      this.collection = new Hashtable<>();
+      System.out.println("You have built a library: 📖");
+    }
+   
+
  /**
    * add book to the object
    */
@@ -20,6 +35,8 @@ public class Library extends Building{
       this.collection.put(title, true);
       System.out.println("The book that is added is" + title);
     }
+
+
   /**
    * remove book from the object collection
    * @return title of the book
@@ -28,6 +45,20 @@ public class Library extends Building{
       this.collection.remove(title, true);
       return title;
     }
+
+
+  /**
+   * use the class overload to remove multiple books from the object collection
+   * @return titles of the book
+   */
+
+    public String removeTitle(String title1, String title2){
+      this.collection.remove(title1, true);
+      this.collection.remove(title2, true);
+      return title1 + title2;
+    }
+
+
   /**
    * change the value to the false when check out
    */ 
@@ -65,19 +96,33 @@ public class Library extends Building{
       System.out.println(this.collection);
     }
 
+  /**
+   * show the available options for the library
+   */
+
     public void showOptions(){
       super.showOptions();
       System.out.println(" + addTitle() \n + removeTitle() \n + CheckOut() \n + Return() \n + containsTitle() \n + isAvailable() \n + printCollection()" );
     }
+
+
 
     public static void main(String[] args) {
         System.out.println("------------------------------------");
         System.out.println("Test of Building constructor/methods");
         System.out.println("------------------------------------");
         
-        Library neilson = new Library("Neilson Library", "100 Green Street Northampton, MA 01063", 5);
+        Library neilson = new Library("Neilson Library", "100 Green Street Northampton, MA 01063");
         System.out.println(neilson);
         neilson.showOptions();
+        neilson.addTitle("abcde");
+        neilson.addTitle("fhgj");
+        neilson.addTitle("ajshdgak");
+        neilson.addTitle("alsidijlaksdj");
+        neilson.removeTitle("alsidijlaksdj", "fhgj");
+        neilson.checkOut("ajshdgak");
+        neilson.Return("asdhaksdjh");
+        neilson.printCollection();
 
         System.out.println("-----------------------------------");
         System.out.println("Demonstrating enter/exit/navigation");
@@ -86,13 +131,6 @@ public class Library extends Building{
         neilson.goUp();
         neilson.goDown();
         neilson.exit();
-        neilson.addTitle("abcde");
-        neilson.removeTitle("abcde");
-        neilson.checkOut("abcde");
-        neilson.Return("abcde");
-        neilson.containsTitle("abcde");
-        neilson.isAvailable("abcde");
-        neilson.printCollection();
 
     }
   
