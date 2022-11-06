@@ -64,6 +64,7 @@ public class Building {
         return null; // We're outside now, so the building is null
     }
 
+
     public void goToFloor(int floorNum) {
         if (this.activeFloor == -1) {
             throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
@@ -91,12 +92,15 @@ public class Building {
         return this.name + " is a " + this.nFloors + "-story building located at " + this.address + ".";
     }
 
+
+
+
     public static void main(String[] args) {
         System.out.println("------------------------------------");
         System.out.println("Test of Building constructor/methods");
         System.out.println("------------------------------------");
         
-        Building fordHall = new Building("Ford Hall", "100 Green Street Northampton, MA 01063", 4);
+        Building fordHall = new Building("Ford Hall", "100 Green Street Northampton, MA 01063", 3);
         System.out.println(fordHall);
         fordHall.showOptions();
 
